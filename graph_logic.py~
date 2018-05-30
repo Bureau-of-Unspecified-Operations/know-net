@@ -1,0 +1,58 @@
+
+
+class Graph(object):
+
+    def __init__(self, nodes, edges):
+        self.adjacencyDict = dict()
+
+    def addEdge(self, node1, node2, relation):
+        for lnode in self.adjacencyDict[node1]:
+            if lnode.relation == relation:
+                #add to linked list chain
+                newRelation = ListNode(node2, lnode, relation)
+                lnode = newRelation
+        #no existing relations of this type
+        self.adjacencyDict[node1].append(ListNode(node2, None, relation))
+
+    def addRelation(self, node1, node2, relation):
+        addEdge(node1, node2, relation)
+        addEdge(node1, node2, relation.compliment)
+
+    def hasEdge(self, node1, node2, relation = None):
+        for lnode in self.adjacencyDict[node1]:
+            if relation is not None:
+                if lnode.relation == relation:
+                    return isInLinkedList(lnode, node2)
+                else: return False
+            else:
+                if isInLikedList(lnode, node2):
+                    return True
+        return False
+
+
+
+
+class ListNode(object):
+
+    def __init__(self, node, next, relation):
+        self.node = node
+        self.next = next
+        self.relation = relation
+    
+
+class Node(object):
+
+    def __init__(self, title, file, label = None):
+        self.title = title
+        self.file = file
+        self.label = label
+
+    def __eq__(self, other):
+        if isinstance(other, Node):
+            return self.title = other.title
+
+    def __hash__(self):
+        return hash(self.title)
+
+
+class Relation(object):
