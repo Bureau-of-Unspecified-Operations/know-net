@@ -15,24 +15,19 @@ class Graph(object):
         self.nodes = list()
         self.nodes.extend(nodes)
     
-    def getEdge(node1, node2):
-        return self.edges[node1][node2]
+    def getEdge(node1, node2)
 
-    def getNeighbors(node, filter):
-        neighbors = list()
-        for i in range(len(self.nodes)):
-            if filter(self.edges(node, i)):
-                neighbors.append(i)
-        return neighbors
+    def getNodeData(node)
 
+    def getNeighbors(node, filter)
+    
     def addNode(node)
 
     def addEdge(node1, node2, edgetype)
 
     def deleteEdge(node1, node2)
 
-
-
+    def deleteNode(node)
 
 
 
@@ -46,8 +41,11 @@ class Node(object):
 
 
 
+
 class HierarchyView(View):
 
     def display(graph, center):
         for neighbor in graph.getNeighbors(center, Edge.SUBCLASS):
             c
+
+    def onClick
